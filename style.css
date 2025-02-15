@@ -38,7 +38,7 @@ body {
 .hero {
     position: relative;
     height: 100vh;
-    background: url('/mnt/data/2025-02-15%20в%2015.43.40_92755fb3.jpg') no-repeat center center/cover;
+    background: url('https://images.wallpaperscraft.com/image/single/man_photographer_mountains_206937_1920x1080.jpg') no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,24 +59,22 @@ body {
     pointer-events: none;
 }
 
-
 .custom-section {
+    width: 100vw; /* Растягиваем на всю ширину экрана */
     height: 150vh;
     background: linear-gradient(to bottom, #2c3e50, #34495e);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    border: 2px solid white;
-    padding: 20px;
-    margin: 50px 0;
-    margin-top: -5px; /* Подвинем секцию вверх */
-    padding: 0; /* Убираем внутренние отступы */
-
+    padding: 0; /* Убираем отступы */
+    margin: 0; /* Убираем лишние отступы */
+    box-sizing: border-box; /* Чтобы padding не влиял на ширину */
 }
+
 .custom-section-text {
-    font-size: 1.8rem; /* Увеличенный размер шрифта */
-    font-weight: bold; /* Более жирный текст */
+    font-size: 1.8rem;
+    font-weight: bold;
     text-align: center;
     max-width: 90%;
     padding: 30px 50px;
