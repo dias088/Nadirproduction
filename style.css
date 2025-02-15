@@ -38,7 +38,7 @@ body {
 .hero {
     position: relative;
     height: 100vh;
-    background: url('https://images.wallpaperscraft.com/image/single/man_photographer_mountains_206937_1920x1080.jpg') no-repeat center center/cover;
+    background: url('/mnt/data/2025-02-15%20в%2015.43.40_92755fb3.jpg') no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
