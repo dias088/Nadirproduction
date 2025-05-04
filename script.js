@@ -89,3 +89,20 @@ function toggleLanguage() {
     }
 
     langBtn.innerText = isRussian ? "Русский" : "Қазақша";
+
+// Бургер-меню
+const burger = document.getElementById('burger');
+const navbarContent = document.getElementById('navbar-content');
+
+burger.addEventListener('click', function() {
+    this.classList.toggle('active');
+    navbarContent.classList.toggle('active');
+});
+
+// Закрытие меню при клике на ссылку
+document.querySelectorAll('.navbar-content a').forEach(link => {
+    link.addEventListener('click', () => {
+        burger.classList.remove('active');
+        navbarContent.classList.remove('active');
+    });
+});
