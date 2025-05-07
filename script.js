@@ -88,27 +88,35 @@ function toggleLanguage() {
         }
     }
     
-    document.addEventListener('DOMContentLoaded', function() {
-        const burger = document.getElementById('burger');
-        const navLinks = document.getElementById('nav-links');
+// Бургер-меню
+const burger = document.getElementById('burger');
+const navLinks = document.getElementById('navLinks');
+
+function toggleMenu() {
+    burger.classList.toggle('active');
+    navLinks.classList.toggle('active');
     
-        if (burger && navLinks) {
-            burger.addEventListener('click', function() {
-                this.classList.toggle('active');
-                navLinks.classList.toggle('active');
-                document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-            });
-    
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', () => {
-                    burger.classList.remove('active');
-                    navLinks.classList.remove('active');
-                    document.body.style.overflow = '';
-                });
-            });
-        } else {
-            console.error('Ошибка: не найдены элементы бургер-меню!');
-        }
-    });
+    // Блокировка прокрутки
+    document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+}
+
+burger.addEventListener('click', toggleMenu);
+
+// Закрытие меню при клике на ссылку
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', toggleMenu);
+});
+
+// Функция перевода (оставьте вашу текущую реализацию)
+function toggleLanguage() {
+    // ... ваш существующий код ...
+}
+
+// Закрытие меню при клике вне его области
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.navbar') && navLinks.classList.contains('active')) {
+        toggleMenu();
+    }
+});
 
     langBtn.innerText = isRussian ? "Русский" : "Қазақша";
