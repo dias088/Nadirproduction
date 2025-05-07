@@ -87,22 +87,28 @@ function toggleLanguage() {
             
         }
     }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const burger = document.getElementById('burger');
+        const navLinks = document.getElementById('nav-links');
+    
+        if (burger && navLinks) {
+            burger.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+            });
+    
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    burger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        } else {
+            console.error('Ошибка: не найдены элементы бургер-меню!');
+        }
+    });
 
     langBtn.innerText = isRussian ? "Русский" : "Қазақша";
-
-// Бургер-меню
-const burger = document.getElementById('burger');
-const navbarContent = document.getElementById('navbar-content');
-
-burger.addEventListener('click', function() {
-    this.classList.toggle('active');
-    navbarContent.classList.toggle('active');
-});
-
-// Закрытие меню при клике на ссылку
-document.querySelectorAll('.navbar-content a').forEach(link => {
-    link.addEventListener('click', () => {
-        burger.classList.remove('active');
-        navbarContent.classList.remove('active');
-    });
-});
