@@ -42,25 +42,56 @@
   color: #fbd786;
 }
 
-/* Бургер-меню (скрыт на десктопе) */
 .burger {
   display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 24px;
-  height: 18px;
   cursor: pointer;
-  z-index: 1001;
+  z-index: 1000;
 }
 
 .burger span {
   display: block;
-  height: 2px;
-  width: 100%;
+  width: 25px;
+  height: 3px;
   background: white;
+  margin: 5px 0;
   transition: all 0.3s;
 }
 
+/* Мобильное меню */
+@media (max-width: 768px) {
+  .burger {
+      display: block;
+  }
+  
+  .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      height: 100vh;
+      background: #16213e;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: right 0.4s ease;
+      z-index: 999;
+  }
+  
+  .nav-links.active {
+      right: 0;
+  }
+  
+  /* Анимация бургера */
+  .burger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+  }
+  .burger.active span:nth-child(2) {
+      opacity: 0;
+  }
+  .burger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
 /* Контент навбара */
 .navbar-content {
   display: flex;
